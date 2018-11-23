@@ -41,14 +41,21 @@ public class LineSegment {
         } else { return false; }
     }
     public boolean intersect(LineSegment l){
+        if(l.slope == this.slope){
+            if (l.bx == this.bx){
+                return  false; // parallel
+            }
+        }
         double xi = (l.bx - this.bx) / (this.slope - l.slope);
-        double yi = this.slope*xi + this.bx;
-        Point isect = new Point(xi,yi); // intersection point
+        double yi = this.slope * xi + this.bx;
+        Point isect = new Point(xi, yi); // intersection point
         if (this.inBounds(isect)) {
             return true;
-        } else { return false; }
+        } else {
+            return false;
+        }
     }
-    public void print(){
-        System.out.println("Start: " + this.a.x + " " + this.a.y + " --- " +  this.b.x + " " + this.b.y);
+    public String toString(){
+        return  ("Start: " + this.a.x + " " + this.a.y + " --- " +  this.b.x + " " + this.b.y);
     }
 }

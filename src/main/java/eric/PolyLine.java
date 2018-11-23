@@ -10,7 +10,7 @@ public class PolyLine {
     List<LineSegment> lines;
     public PolyLine(List<Point> pointList) {
         this.points = pointList;
-        this.lines = new ArrayList<>(pointList.size()); // init array size
+        this.lines = new ArrayList<>(pointList.size()-1); // init array size
         Point start = this.points.get(0);
         for(Point p : pointList){
             if(start == p){ continue; }
@@ -18,7 +18,7 @@ public class PolyLine {
                 LineSegment temp = new LineSegment(start, p);
                 this.lines.add(temp);
                 start = p;
-                temp.print(); // checking start end coords
+                System.out.println(temp); // checking start end coords
             }
         }
     }
