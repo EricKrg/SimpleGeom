@@ -1,8 +1,5 @@
 package eric;
 
-import javax.sound.sampled.Line;
-import java.nio.channels.Pipe;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -14,13 +11,24 @@ public class App
 {
     public static void main( String[] args )
     {
-        Point first = new Point(1,4);
-        Point second = new Point(7,3);
-        Point on = new Point(2,3);
-        Point up = new Point(1,3);
+        Point first = new Point(1,1);
+        Point second = new Point(2,2);
+        Point on = new Point(3,3);
+        Point a = new Point(1,3);
+        Point b = new Point(2,0);
+        Point c = new Point(4   ,3);
         List<Point> points = Arrays.asList(first,second,on);
+        List<Point> pointsB = Arrays.asList(a,b,c);
         PolyLine mline = new PolyLine(points);
-        System.out.println(mline.getLength());
+        PolyLine bline = new PolyLine(pointsB);
+        System.out.println(mline.intersect(bline)); // line intersect
+        System.out.println(mline.intersect(on));
+        try {
+            mline.insertPoint(c, -1);
+            System.out.println(mline);
+        } catch (IllegalArgumentException e){
+            System.out.println(mline);
+        }
         /*
         LineSegment seg = new LineSegment(first,second);
         LineSegment upper = new LineSegment(up, on);

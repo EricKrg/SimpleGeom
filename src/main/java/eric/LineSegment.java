@@ -16,11 +16,11 @@ public class LineSegment {
         return distance;
     }
     public boolean xBound(Point p) {
-        if(this.a.getX() < p.getX() && this.b.getX() > p.getX()){ return true; }
+        if(this.a.getX() <= p.getX() && this.b.getX() >= p.getX()){ return true; }
         else { return false; }
     }
     public boolean yBound(Point p){
-        if(this.a.getY()< p.getY() && this.b.getY() > p.getY()){ return true; }
+        if(this.a.getY() <= p.getY() && this.b.getY() >= p.getY()){ return true; }
         else { return false; }
     }
     public boolean inBounds(Point p){
